@@ -13,6 +13,6 @@ class RandomController(
 
     @GetMapping
     fun randomNumber(): String {
-        return kafkaService.produceNumber()
+        return "HELLO"
     }
 }

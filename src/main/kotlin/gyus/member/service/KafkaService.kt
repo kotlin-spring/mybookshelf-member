@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service
 @Service
 class KafkaService(
     private val kafkaTemplate: KafkaTemplate<String, String>,
-    private val mailService: MailService
 ) {
 
     @Async
@@ -31,9 +30,4 @@ class KafkaService(
         println("send-mail 토픽에 편지를 보냅니다. ${memberDTO.email}")
     }
 
-    @KafkaListener(topics = ["send-mail"])
-    fun consumeMemberEmail(email:String) {
-        val result = mailService.send("MybookShelf 회원가입을 축하합니다.", mapOf("data" to email), email)
-        println("consume email topic : $result")
-    }
 }

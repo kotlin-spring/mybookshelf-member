@@ -8,15 +8,13 @@ import org.thymeleaf.context.Context
 import org.thymeleaf.spring6.SpringTemplateEngine
 import java.nio.charset.StandardCharsets
 
-@Service
 class MailService(
-    private val amazonSimpleEmailService: AmazonSimpleEmailService,
     private val templateEngine: SpringTemplateEngine,
     @Value("\${aws.ses.from}")
     private val from:String
 ) {
 
-    fun send(subject:String, variables: Map<String, Any>, vararg to: String):SendEmailResult {
+    fun send(subject:String, variables: Map<String, Any>, vararg to: String) {
         val context = Context()
         context.setVariables(variables)
         val content = templateEngine.process("mail", context)
@@ -34,8 +32,6 @@ class MailService(
                     )
             )
 
-        val result = amazonSimpleEmailService.sendEmail(sendMailRequest)
-        return result
     }
 
 }

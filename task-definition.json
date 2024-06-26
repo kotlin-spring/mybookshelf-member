@@ -1,13 +1,13 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:381492195228:task-definition/mybookshelf:4",
+  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:381492195228:task-definition/mybookshelf-x86:1",
   "containerDefinitions": [
     {
       "name": "member",
       "image": "381492195228.dkr.ecr.ap-northeast-2.amazonaws.com/member",
-      "cpu": 0,
+      "cpu": 1024,
       "portMappings": [
         {
-          "name": "8080",
+          "name": "80",
           "containerPort": 8080,
           "hostPort": 8080,
           "protocol": "tcp",
@@ -23,7 +23,7 @@
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/mybookshelf",
+          "awslogs-group": "/ecs/mybookshelf-x86",
           "awslogs-create-group": "true",
           "awslogs-region": "ap-northeast-2",
           "awslogs-stream-prefix": "ecs"
@@ -33,10 +33,10 @@
       "systemControls": []
     }
   ],
-  "family": "mybookshelf",
+  "family": "mybookshelf-x86",
   "executionRoleArn": "arn:aws:iam::381492195228:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
-  "revision": 4,
+  "revision": 1,
   "volumes": [],
   "status": "ACTIVE",
   "requiresAttributes": [
@@ -73,13 +73,13 @@
   "requiresCompatibilities": [
     "FARGATE"
   ],
-  "cpu": "1024",
-  "memory": "3072",
+  "cpu": "2048",
+  "memory": "4096",
   "runtimePlatform": {
-    "cpuArchitecture": "ARM64",
+    "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2024-06-26T20:03:28.142Z",
+  "registeredAt": "2024-06-26T21:12:22.967Z",
   "registeredBy": "arn:aws:iam::381492195228:root",
   "tags": []
 }

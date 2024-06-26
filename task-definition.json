@@ -1,10 +1,10 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:381492195228:task-definition/mybookshelf-x86:1",
+  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:381492195228:task-definition/mybookshelf2:1",
   "containerDefinitions": [
     {
       "name": "member",
       "image": "381492195228.dkr.ecr.ap-northeast-2.amazonaws.com/member",
-      "cpu": 1024,
+      "cpu": 0,
       "portMappings": [
         {
           "name": "80",
@@ -23,7 +23,7 @@
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/mybookshelf-x86",
+          "awslogs-group": "/ecs/mybookshelf2",
           "awslogs-create-group": "true",
           "awslogs-region": "ap-northeast-2",
           "awslogs-stream-prefix": "ecs"
@@ -33,7 +33,7 @@
       "systemControls": []
     }
   ],
-  "family": "mybookshelf-x86",
+  "family": "mybookshelf2",
   "executionRoleArn": "arn:aws:iam::381492195228:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
   "revision": 1,
@@ -79,7 +79,7 @@
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2024-06-26T21:12:22.967Z",
+  "registeredAt": "2024-06-26T22:03:43.990Z",
   "registeredBy": "arn:aws:iam::381492195228:root",
   "tags": []
 }

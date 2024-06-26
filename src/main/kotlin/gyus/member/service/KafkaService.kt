@@ -22,7 +22,7 @@ class KafkaService(
 
     @KafkaListener(topics = ["random-number"])
     fun consumeNumber(message:String) {
-        println("check $message")
+        println(">>> check $message")
     }
 
     @Async
